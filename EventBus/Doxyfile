@@ -4,3 +4,10 @@ PROJECT_NUMBER  = 1.0.1
 GENERATE_HTML   = YES
 GENERATE_MAN    = YES
 GENERATE_LATEX  = NO
+
+USE_MDFILE_AS_MAINPAGE = ../README.md
+
+INPUT                  = ../README.md
+INPUT                 += EventSubscriberAttribute.cs
+INPUT                 += IEventBus.cs
+INPUT                 += SimpleEventBus.cs

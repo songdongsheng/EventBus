@@ -1,4 +1,4 @@
-# git check-attr -a iconv.txt
+# git check-attr -a LICENSE
 
 # Tell Git not to attempt any end-of-line conversion upon checkin or checkout.
 *               -text
