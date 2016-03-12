@@ -76,3 +76,15 @@ Basic usage
             return sb.ToString();
         }
     }
+
+Building from source
+--------------------
+
+    cd EventBus
+
+    msbuild EventBus.csproj /t:Rebuild /p:Platform=AnyCPU /p:Configuration=Release
+    msbuild EventBus.csproj /t:Rebuild /p:Platform=AnyCPU /p:Configuration=Release46
+    msbuild EventBus.csproj /t:Rebuild /p:Platform=AnyCPU /p:Configuration=Release45
+
+    dotnet restore
+    dotnet build -c Release

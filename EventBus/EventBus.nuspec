@@ -4,12 +4,16 @@
         <id>EventBus</id>
         <version>1.0.1</version>
         <authors>宋冬生</authors>
-        <description>Simple Event Bus Library for .NET</description>
+        <description>
+            Simple Event Bus Library for .NET
+
+            .NET Framework 4.5 (or later) and CoreCLR 1.0 (or later) is officially supported
+        </description>
         <tags>"IPC", "Event", "Bus", "Handler", "CQRS"</tags>
         <projectUrl>https://github.com/songdongsheng/EventBus</projectUrl>
         <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
         <iconUrl>https://upload.wikimedia.org/wikipedia/en/0/0d/Microsoft_.NET_Framework_v4.5_logo.png</iconUrl>
-        <releaseNotes>CoreCLR 1.0, .NET Framework 4.5 or 4.6</releaseNotes>
+        <releaseNotes></releaseNotes>
     </metadata>
     <files>
         <file src="EventSubscriberAttribute.cs" target="src" />
