@@ -1,0 +1,26 @@
+{
+    "id": "EventBus",
+    "version": "1.0.0-*",
+    "authors": [ "宋冬生" ],
+    "description": "Simple Event Bus Library for .NET",
+    "tags": [ "IPC", "Event", "Bus", "Handler", "CQRS" ],
+    "projectUrl": "https://github.com/songdongsheng/EventBus",
+    "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+    "iconUrl" : "https://upload.wikimedia.org/wikipedia/en/0/0d/Microsoft_.NET_Framework_v4.5_logo.png",
+
+    "compilationOptions": {
+        "keyFile": "../dongsheng.snk"
+    },
+
+    "frameworks": {
+        "netstandardapp1.5": {
+            "imports": "dnxcore50",
+            "dependencies": {
+                "NETStandard.Library": "1.0.0-*",
+                "System.Threading.Thread": "4.0.0-*",
+                "System.Reflection.TypeExtensions": "4.1.0-*",
+                "System.Diagnostics.TraceSource": "4.0.0-*"
+            }
+        }
+    }
+}

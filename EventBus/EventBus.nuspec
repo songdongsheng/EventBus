@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>EventBus</id>
+        <version>1.0.1</version>
+        <authors>宋冬生</authors>
+        <description>Simple Event Bus Library for .NET</description>
+        <tags>"IPC", "Event", "Bus", "Handler", "CQRS"</tags>
+        <projectUrl>https://github.com/songdongsheng/EventBus</projectUrl>
+        <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+        <iconUrl>https://upload.wikimedia.org/wikipedia/en/0/0d/Microsoft_.NET_Framework_v4.5_logo.png</iconUrl>
+        <releaseNotes>CoreCLR 1.0, .NET Framework 4.5 or 4.6</releaseNotes>
+    </metadata>
+    <files>
+        <file src="EventSubscriberAttribute.cs" target="src" />
+        <file src="IEventBus.cs" target="src" />
+        <file src="SimpleEventBus.cs" target="src" />
+        <file src="Properties\AssemblyInfo.cs" target="src\Properties" />
+
+        <file src="bin\Release\netstandardapp1.5\EventBus.dll" target="lib\netstandardapp1.5" />
+        <file src="bin\Release\netstandardapp1.5\EventBus.pdb" target="lib\netstandardapp1.5" />
+
+        <file src="bin\Release\net461\EventBus.xml" target="doc" />
+        <file src="html\" target="doc" />
+        <file src="man\" target="doc" />
+
+        <file src="bin\Release\net461\EventBus.dll" target="lib\net461" />
+        <file src="bin\Release\net461\EventBus.pdb" target="lib\net461" />
+
+        <file src="bin\Release\net46\EventBus.dll" target="lib\net46" />
+        <file src="bin\Release\net46\EventBus.pdb" target="lib\net46" />
+
+        <file src="bin\Release\net45\EventBus.dll" target="lib\net45" />
+        <file src="bin\Release\net45\EventBus.pdb" target="lib\net45" />
+    </files>
+</package>
