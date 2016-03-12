@@ -1,5 +1,5 @@
-Simple Event Bus Library for .NET {#mainpage}
-=============================================
+Simple Event Bus Library for .NET
+=================================
 
 Questions & Comments
 --------------------
