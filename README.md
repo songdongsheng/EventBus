@@ -89,3 +89,7 @@ Building from source
 
     dotnet restore
     dotnet build -c Release
+
+    doxygen
+
+    nuget pack EventBus.nuspec

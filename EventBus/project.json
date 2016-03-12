@@ -1,6 +1,6 @@
 {
     "id": "EventBus",
-    "version": "1.1.0-*",
+    "version": "1.1.1-*",
     "authors": [ "宋冬生" ],
     "description": "Simple Event Bus Library for .NET",
     "tags": [ "IPC", "Event", "Bus", "Handler", "CQRS" ],
