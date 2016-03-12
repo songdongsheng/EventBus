@@ -11,7 +11,7 @@ Build Status
 
 |CoreCLR 1.0 |.NET Framework 4.6 |.NET Framework 4.5 |
 |:---------: |:-----------------:|:-----------------:|
-| OK | OK | OK |
+| ![](https://ci.appveyor.com/api/projects/status/github/songdongsheng/eventbus?branch=master&svg=true) | ![](https://ci.appveyor.com/api/projects/status/github/songdongsheng/eventbus?branch=master&svg=true) | ![](https://ci.appveyor.com/api/projects/status/github/songdongsheng/eventbus?branch=master&svg=true) |
 
 Basic usage
 -----------
