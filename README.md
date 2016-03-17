@@ -18,6 +18,7 @@ Basic usage
 
     private void SimpleTest()
     {
+        // OrderedEventBus eventBus = OrderedEventBus.GetDefaultEventBus();
         SimpleEventBus eventBus = SimpleEventBus.GetDefaultEventBus();
         eventBus.Register(this);
         eventBus.Post("msg", TimeSpan.Zero);

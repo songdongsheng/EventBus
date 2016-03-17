@@ -11,13 +11,16 @@ namespace EventBus
     /// <summary>
     /// The SimpleEventBus class is a simple and fast IEventBus implemention.
     /// </summary>
-    /// <remarks>The event may be processed out of the delivery order under heavy load.</remarks>
+    /// <remarks>
+    /// <para>The event may be processed out of the delivery order under heavy load.</para>
+    /// <para>If you need the event processed in the delivery order, use OrderedEventBus instead.</para>
+    /// </remarks>
     public class SimpleEventBus : IEventBus
     {
         private const long DefaultMaxQueueDepth = 1024 * 1024;
         private static readonly SimpleEventBus DefaultEventBus = new SimpleEventBus(DefaultMaxQueueDepth);
 
-        private List<EventHandler> _eventHandlerList = new List<EventHandler>();
+        private List<EventHandlerHolder> _eventHandlerList = new List<EventHandlerHolder>();
         private readonly object _eventHandlerLock = new object();
 
         // Interlocked operation cause the performance drop at least 10% !.
@@ -58,7 +61,10 @@ namespace EventBus
         /// <summary>
         /// Post an event to the event bus, dispatched after the specific time.
         /// </summary>
-        /// <remarks>The event may be processed out of the delivery order under heavy load.</remarks>
+        /// <remarks>
+        /// <para>The event may be processed out of the delivery order under heavy load.</para>
+        /// <para>If you need the event processed in the delivery order, use OrderedEventBus instead.</para>
+        /// </remarks>
         /// <param name="eventObject">The event object</param>
         /// <param name="dispatchDelay">The delay time before dispatch this event</param>
         public void Post(object eventObject, TimeSpan dispatchDelay)
@@ -96,7 +102,7 @@ namespace EventBus
                 for (int i = 0; i < _eventHandlerList.Count; i++)
                 {
                     // ReSharper disable once InconsistentlySynchronizedField
-                    EventHandler record = _eventHandlerList[i];
+                    EventHandlerHolder record = _eventHandlerList[i];
                     if (eventObject == null || record.ParameterType.IsInstanceOfType(eventObject))
                     {
                         Task.Run(() =>
@@ -132,7 +138,10 @@ namespace EventBus
         /// One handler instance may have many event handler methods.
         /// These methods have EventSubscriberAttribute contract and exactly one parameter.
         /// </summary>
-        /// <remarks>The handler may be invoked out of the event delivery order under heavy load.</remarks>
+        /// <remarks>
+        /// <para>The handler may be invoked out of the event delivery order under heavy load.</para>
+        /// <para>If you need the event processed in the delivery order, use OrderedEventBus instead.</para>
+        /// </remarks>
         /// <param name="handler">The instance of event handler class</param>
         public void Register(object handler)
         {
@@ -150,7 +159,7 @@ namespace EventBus
                     return;
                 }
 
-                List<EventHandler> newList = null;
+                List<EventHandlerHolder> newList = null;
                 foreach (MethodInfo mi in miList)
                 {
                     EventSubscriberAttribute attribute = mi.GetCustomAttribute<EventSubscriberAttribute>();
@@ -162,9 +171,9 @@ namespace EventBus
                             // OK, we got valid handler, create newList as needed
                             if (newList == null)
                             {
-                                newList = new List<EventHandler>(_eventHandlerList);
+                                newList = new List<EventHandlerHolder>(_eventHandlerList);
                             }
-                            newList.Add(new EventHandler(handler, mi, piList[0].ParameterType));
+                            newList.Add(new EventHandlerHolder(handler, mi, piList[0].ParameterType));
                         }
                     }
                 }
@@ -197,26 +206,10 @@ namespace EventBus
 
                 if (needAction)
                 {
-                    List<EventHandler> newList = _eventHandlerList.Where(record => record.Handler != handler).ToList();
+                    List<EventHandlerHolder> newList = _eventHandlerList.Where(record => record.Handler != handler).ToList();
                     _eventHandlerList = newList;
                 }
             }
-        }
-
-        private class EventHandler
-        {
-            public EventHandler(object handler, MethodInfo methodInfo, Type parameterType)
-            {
-                Handler = handler;
-                MethodInfo = methodInfo;
-                ParameterType = parameterType;
-            }
-
-            public object Handler { get; }
-
-            public MethodInfo MethodInfo { get; }
-
-            public Type ParameterType { get; }
         }
     }
 }

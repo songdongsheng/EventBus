@@ -1,5 +1,5 @@
 PROJECT_NAME    = EventBus
-PROJECT_NUMBER  = 1.0.1
+PROJECT_NUMBER  = 1.1.0
 
 GENERATE_HTML   = YES
 GENERATE_MAN    = YES
@@ -10,4 +10,5 @@ USE_MDFILE_AS_MAINPAGE = ../README.md
 INPUT                  = ../README.md
 INPUT                 += EventSubscriberAttribute.cs
 INPUT                 += IEventBus.cs
+INPUT                 += OrderedEventBus.cs
 INPUT                 += SimpleEventBus.cs
