@@ -9,8 +9,8 @@ Any feedback is welcome, please use the Issues on this repository.
 Build Status
 ------------
 
-|CoreCLR 1.0 |.NET Framework 4.6 |.NET Framework 4.5 |
-|:---------: |:-----------------:|:-----------------:|
+|.NET Core 1.0 |.NET Framework 4.6 |.NET Framework 4.5 |
+|:-----------: |:-----------------:|:-----------------:|
 | ![](https://ci.appveyor.com/api/projects/status/github/songdongsheng/eventbus?branch=master&svg=true) | ![](https://ci.appveyor.com/api/projects/status/github/songdongsheng/eventbus?branch=master&svg=true) | ![](https://ci.appveyor.com/api/projects/status/github/songdongsheng/eventbus?branch=master&svg=true) |
 
 Basic usage

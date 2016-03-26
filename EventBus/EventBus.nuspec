@@ -7,7 +7,7 @@
         <description>
 Simple Event Bus Library for .NET
 
-.NET Framework 4.5 (or later) and CoreCLR 1.0 (or later) is officially supported
+.NET Framework 4.5 (or later) and .NET Core 1.0 (or later) is officially supported
         </description>
         <tags>"IPC", "Event", "Bus", "Handler", "CQRS"</tags>
         <projectUrl>https://github.com/songdongsheng/EventBus</projectUrl>
