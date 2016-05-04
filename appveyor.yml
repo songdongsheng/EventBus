@@ -11,12 +11,14 @@ install:
   # C:\projects\eventbus\EventBus
   - ps: cd EventBus
   - echo %CD%
+  - git --version
   - git rev-list --count HEAD
 
 assembly_info:
   patch: true
   file: AssemblyInfo.cs
   assembly_version: "{version}"
+  assembly_file_version: '{version}'
 
 build_script:
   - echo %CD%

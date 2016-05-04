@@ -17,7 +17,7 @@ namespace EventBus
     {
         private const int DefaultMaxPendingEventNumber = 1024 * 1024;
 
-        private bool _disposed = false;
+        private bool _isDisposed;
         private static readonly OrderedEventBus DefaultEventBus = new OrderedEventBus(DefaultMaxPendingEventNumber);
 
         private List<EventHandlerHolder> _eventHandlerList = new List<EventHandlerHolder>();
@@ -196,21 +196,28 @@ namespace EventBus
             }
         }
 
+        /// <summary>
+        /// Releases resources used by the <see cref="EventBus.OrderedEventBus"/> instance.
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Releases resources used by the <see cref="EventBus.OrderedEventBus"/> instance.
+        /// </summary>
+        /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
-            if (!_disposed)
+            if (!_isDisposed)
             {
                 if (disposing)
                 {
                     _eventQueue.Dispose();
                 }
-                _disposed = true;
+                _isDisposed = true;
             }
         }
     }
