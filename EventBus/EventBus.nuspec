@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>EventBus</id>
-        <version>1.1.1</version>
+        <version>1.1.2</version>
         <authors>宋冬生</authors>
         <description>
 Simple Event Bus Library for .NET
 
-.NET Framework 4.5 (or later) and .NET Core 1.0 (or later) is officially supported
+.NET Framework 4.5 (4.6 or later) and .NETCoreApp 1.0 (or later) is officially supported
         </description>
         <tags>"IPC", "Event", "Bus", "Handler", "CQRS"</tags>
         <projectUrl>https://github.com/songdongsheng/EventBus</projectUrl>
@@ -28,14 +28,14 @@ Simple Event Bus Library for .NET
         <file src="EventBus.csproj" target="src" />
         <file src="project.json" target="src" />
 
-        <file src="..\dongsheng.snk" target="\" />
+        <file src="..\dongsheng.snk" target="" />
 
         <file src="bin\Release\net461\EventBus.xml" target="doc" />
         <file src="html\" target="doc\html\" />
         <file src="man\" target="doc\man\" />
 
-        <file src="bin\Release\netstandardapp1.5\EventBus.dll" target="lib\netstandardapp1.5" />
-        <file src="bin\Release\netstandardapp1.5\EventBus.pdb" target="lib\netstandardapp1.5" />
+        <file src="bin\Release\netcoreapp1.0\EventBus.dll" target="lib\netcoreapp1.0" />
+        <file src="bin\Release\netcoreapp1.0\EventBus.pdb" target="lib\netcoreapp1.0" />
 
         <file src="bin\Release\net461\EventBus.dll" target="lib\net461" />
         <file src="bin\Release\net461\EventBus.pdb" target="lib\net461" />
