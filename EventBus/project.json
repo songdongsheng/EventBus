@@ -3,24 +3,39 @@
     "version": "1.1.1-*",
     "authors": [ "宋冬生" ],
     "description": "Simple Event Bus Library for .NET",
-    "tags": [ "IPC", "Event", "Bus", "Handler", "CQRS" ],
-    "projectUrl": "https://github.com/songdongsheng/EventBus",
-    "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
-    "iconUrl" : "https://upload.wikimedia.org/wikipedia/en/0/0d/Microsoft_.NET_Framework_v4.5_logo.png",
 
-    "compilationOptions": {
+    "packOptions" : {
+        "tags": [ "IPC", "Event", "Bus", "Handler", "CQRS" ],
+        "projectUrl": "https://github.com/songdongsheng/EventBus",
+        "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+        "iconUrl" : "https://upload.wikimedia.org/wikipedia/en/0/0d/Microsoft_.NET_Framework_v4.5_logo.png",
+    },
+
+    "buildOptions": {
         "keyFile": "../dongsheng.snk"
     },
 
     "frameworks": {
-        "netstandardapp1.5": {
+        "netcoreapp1.0": {
             "imports": "dnxcore50",
             "dependencies": {
-                "NETStandard.Library": "1.0.0-*",
-                "System.Threading.Thread": "4.0.0-*",
-                "System.Reflection.TypeExtensions": "4.1.0-*",
+                "Microsoft.NETCore.App": {
+                    "type": "platform",
+                    "version": "1.0.0-*"
+                },
                 "System.Diagnostics.TraceSource": "4.0.0-*"
             }
-        }
+        },
+
+        "net45": {},
+        "net46": {}
+    },
+
+    "runtimes" : {
+        "debian.8-x64": {},
+        "osx.10.10-x64": {},
+        "rhel.7-x64": {},
+        "ubuntu.14.04-x64": {},
+        "win7-x64": {}
     }
 }

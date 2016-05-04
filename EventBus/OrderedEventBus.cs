@@ -13,9 +13,11 @@ namespace EventBus
     /// The OrderedEventBus class is a simple and fast IEventBus implemention which processes event in the delivery order.
     /// </summary>
     /// <remarks>If you do not need the event processed in the delivery order, use SimpleEventBus instead.</remarks>
-    public class OrderedEventBus : IEventBus
+    public class OrderedEventBus : IEventBus, IDisposable
     {
-        private const int DefaultMaxPendingEventNumber = 1024*1024;
+        private const int DefaultMaxPendingEventNumber = 1024 * 1024;
+
+        private bool _disposed = false;
         private static readonly OrderedEventBus DefaultEventBus = new OrderedEventBus(DefaultMaxPendingEventNumber);
 
         private List<EventHandlerHolder> _eventHandlerList = new List<EventHandlerHolder>();
@@ -191,6 +193,24 @@ namespace EventBus
             if (taskList != null)
             {
                 Task.WaitAll(taskList.ToArray());
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _eventQueue.Dispose();
+                }
+                _disposed = true;
             }
         }
     }

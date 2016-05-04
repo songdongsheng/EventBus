@@ -11,6 +11,7 @@ install:
   # C:\projects\eventbus\EventBus
   - ps: cd EventBus
   - echo %CD%
+  - git rev-list --count HEAD
 
 assembly_info:
   patch: true
