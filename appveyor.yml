@@ -21,6 +21,9 @@ install:
 #  assembly_version: "{version}"
 #  assembly_file_version: '{version}'
 
+before_build:
+  - msbuild EventBus.NetStandard.csproj /t:Restore
+
 build_script:
   - echo %CD%
   - msbuild EventBus.NetStandard.csproj /t:Rebuild /p:Configuration=Release
